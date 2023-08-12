@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type User = {
   id: number;
   name: string;
@@ -22,6 +24,14 @@ export default async function Page({ params }: any) {
       <p>ID: {data.id}</p>
       <p>Name: {data.name}</p>
       <p>UserName: {data.username}</p>
+      <p>
+        <Link href={`/usuarios/${Number(params.id) + 1}`}>Proximo usuario</Link>
+      </p>
+      <p>
+        <Link href={`/usuarios/${Number(params.id) - 1}`}>
+          Usuario Anterior
+        </Link>
+      </p>
     </main>
   );
 }
